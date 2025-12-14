@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Item Submission</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* AliceBlue */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Form Container */
+        form {
+            background-color: #ffffff;
+            border: 2px solid #3c99dc; /* Tufts Blue */
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form Heading */
+        h2 {
+            text-align: center;
+            color: #0f5298; /* Yale Blue */
+        }
+
+        /* Form Labels */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2565ae; /* Lapis Lazuli */
+        }
+
+        /* Form Inputs */
+        input[type="text"],
+        input[type="tel"],
+        input[type="datetime-local"],
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Radio Buttons */
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        /* File Input */
+        input[type="file"] {
+            margin-bottom: 15px;
+        }
+
+        /* Submit Button */
+        input[type="submit"] {
+            background-color: #3c99dc; /* Tufts Blue */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0f5298; /* Yale Blue */
+        }
+    </style>
+</head>
+<body>
+    <h2>Lost and Found Item Submission Form</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+
+        <label for="itemStatus">Item Status:</label><br>
+        <input type="radio" id="lost" name="itemStatus" value="lost" >
+        <label for="lost">Lost</label><br>
+        <input type="radio" id="found" name="itemStatus" value="found" >
+        <label for="found">Found</label><br><br>
+
+        <label for="itemName">Item Name:</label><br>
+        <input type="text" id="itemName" name="itemName" ><br><br>
+
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location" ><br><br>
+
+        <label for="dateTime">Date and Time:</label><br>
+        <input type="datetime-local" id="dateTime" name="dateTime" ><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" ></textarea><br><br>
+
+        <label for="phoneNumber">Phone Number:</label><br>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g., o7-xxxx-xxxx" ><br><br>
+
+        <input type="submit" value="Submit">
+
+        <fieldset>
+            <legend>Image upload</legend>
+            <p>Pick up an image to upload, and press "upload" </p>
+            <form name="form2" enctype="multipart/form-data" method="post" action="upload.php" />
+                <p><input type="file" size="32" name="my_field" value="" /></p>
+                <p class="button"><input type="hidden" name="action" value="image" />
+                <input type="submit" name="Submit" value="upload" /></p>
+            </form>
+        </fieldset>
+
+    </form>
+</body>
+</html>

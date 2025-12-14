@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Item Submission</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            border: 2px solid #3c99dc;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0f5298;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2565ae;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="datetime-local"],
+        textarea,
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #3c99dc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0f5298;
+        }
+
+        #imagePreview {
+            display: none;
+            width: 100%;
+            max-height: 300px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lost and Found Item Submission Form</h2>
+    <form id="itemForm" action="submit_item.php" method="post" enctype="multipart/form-data">
+        <label for="itemStatus">Item Status:</label>
+        <input type="radio" id="lost" name="itemStatus" value="lost" required>
+        <label for="lost">Lost</label>
+        <input type="radio" id="found" name="itemStatus" value="found" required>
+        <label for="found">Found</label>
+
+        <label for="itemType">Item Type:</label>
+        <select id="itemType" name="itemType" required>
+            <option value="identification">Identification Card</option>
+            <option value="electronics">Electronic Gadget</option>
+            <option value="personal">Personal Item</option>
+        </select>
+
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" name="itemName" required>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="dateTime">Date and Time:</label>
+        <input type="datetime-local" id="dateTime" name="dateTime" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <label for="itemImage">Upload Image:</label>
+        <input type="file" id="itemImage" name="itemImage" accept="image/*" onchange="previewImage(event)">
+
+        <img id="imagePreview" alt="Image Preview">
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g., 07-xxxx-xxxx" required>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Image Preview Script
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        // Uncomment the next lines when your backend is ready to receive data
+        // document.getElementById('itemForm').addEventListener('submit', function(event) {
+        //     event.preventDefault();
+        //     alert('Form Submitted!');
+        // });
+    </script>
+</body>
+</html>

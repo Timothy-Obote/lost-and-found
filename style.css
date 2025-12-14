@@ -1,0 +1,104 @@
+/* Header container */
+header {
+    display: flex;
+    justify-content: space-between; /* Space between login-register and submit-nav */
+    align-items: center; /* Vertically center the items */
+    padding: 10px;
+    position: relative;
+}
+
+/* Login/Register section */
+.login-register {
+    margin-left: 10px;
+}
+
+/* Submit Lost/Found item links */
+.submit-nav {
+    margin-right: 10px;
+}
+
+/* Center the website name */
+h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the h1 */
+    margin: 0;
+}
+
+/* Styling for login and register links */
+.login-register a, .submit-nav a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Hover effect for links */
+.login-register a:hover, .submit-nav a:hover {
+    color: #007BFF;
+}
+
+/* Styling for navigation bar */
+nav {
+    text-align: center;
+    margin: 10px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #0073e6;
+    font-weight: bold;
+}
+
+/* Styling for sections */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.section {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.center-text {
+
+    text-align: center;
+    
+
+}
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        nav {
+            text-align: center;
+            margin: 10px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
