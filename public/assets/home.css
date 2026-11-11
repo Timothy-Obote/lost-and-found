@@ -1,0 +1,432 @@
+.home-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+.home-page *,
+.home-page *::before,
+.home-page *::after {
+    box-sizing: border-box;
+}
+
+.home-page .site-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem max(1.5rem, calc((100vw - 1200px) / 2));
+    background: #fff;
+    border-bottom: 1px solid #e4e9f1;
+}
+
+.home-page .brand {
+    position: static;
+    grid-column: 2;
+    margin: 0;
+    transform: none;
+    color: #173b68;
+    font-size: clamp(1.15rem, 2.4vw, 1.8rem);
+    letter-spacing: 0.04em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.home-page .account-nav,
+.home-page .submit-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+}
+
+.home-page .account-nav {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.home-page .submit-nav {
+    grid-column: 3;
+    grid-row: 1;
+    justify-content: flex-end;
+}
+
+.home-page .account-nav a,
+.home-page .submit-nav a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #d5deeb;
+    border-radius: 0.55rem;
+    color: #174b84;
+    font-size: 0.95rem;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.home-page .account-nav a:hover,
+.home-page .submit-nav a:hover,
+.home-page .account-nav a:focus-visible,
+.home-page .submit-nav a:focus-visible {
+    border-color: #145da0;
+    background: #145da0;
+    color: #fff;
+}
+
+.home-page .account-nav .primary-link {
+    border-color: #145da0;
+    background: #145da0;
+    color: #fff;
+}
+
+.home-page main {
+    width: min(100% - 2rem, 1120px);
+    margin: 0 auto;
+    padding: clamp(2.5rem, 7vw, 5rem) 0;
+}
+
+.home-page .intro {
+    max-width: 46rem;
+    margin: 0 auto clamp(2rem, 5vw, 3.25rem);
+    text-align: center;
+}
+
+.home-page .intro h2 {
+    margin: 0 0 0.75rem;
+    color: #173b68;
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    line-height: 1.15;
+}
+
+.home-page .intro p {
+    margin: 0;
+    color: #58667b;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.65;
+}
+
+.home-page .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    width: 100%;
+    margin: 0;
+    overflow: visible;
+}
+
+.home-page .category-card {
+    min-width: 0;
+    margin: 0;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+    border: 1px solid #e1e8f1;
+    border-radius: 0.85rem;
+    background: #fff;
+    box-shadow: 0 0.5rem 1.4rem rgb(24 48 78 / 7%);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.home-page .category-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.8rem 1.8rem rgb(24 48 78 / 12%);
+}
+
+.home-page .category-card > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.home-page .category-card > a:focus-visible {
+    outline: 3px solid #6aa9e8;
+    outline-offset: 4px;
+}
+
+.home-page .category-card h3 {
+    margin: 0 0 0.65rem;
+    color: #174b84;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.home-page .category-card p {
+    margin: 0;
+    color: #58667b;
+    line-height: 1.6;
+}
+
+.home-page .lost-item {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e8edf4;
+    overflow-wrap: anywhere;
+}
+
+.home-page .lost-item h3 {
+    margin: 0 0 0.5rem;
+    color: #172033;
+    font-size: 1rem;
+}
+
+.home-page .lost-item p {
+    margin: 0.35rem 0;
+}
+
+.home-page .lost-item img {
+    display: block;
+    width: min(100%, 16rem);
+    max-height: 14rem;
+    margin-top: 0.75rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+@media (max-width: 900px) {
+    .home-page .site-header {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem 1rem;
+    }
+
+    .home-page .brand {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .home-page .account-nav {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .home-page .submit-nav {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .home-page .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .home-page .site-header {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: stretch;
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    .home-page .brand {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: clamp(1.05rem, 5vw, 1.35rem);
+        white-space: normal;
+    }
+
+    .home-page .account-nav,
+    .home-page .submit-nav {
+        grid-column: 1;
+        justify-content: center;
+    }
+
+    .home-page .account-nav {
+        grid-row: 2;
+    }
+
+    .home-page .submit-nav {
+        grid-row: 3;
+    }
+
+    .home-page .account-nav a,
+    .home-page .submit-nav a {
+        flex: 1 1 0;
+        padding-inline: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .home-page main {
+        width: min(100% - 1.25rem, 28rem);
+        padding: 2.25rem 0;
+    }
+
+    .home-page .intro {
+        margin-bottom: 1.5rem;
+    }
+
+    .home-page .category-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.9rem;
+    }
+
+    .home-page .category-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-page *,
+    .home-page *::before,
+    .home-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.home-page .auth-card {
+    width: min(100%, 34rem);
+    margin: 0 auto;
+}
+
+.home-page .auth-card form {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.home-page .auth-card label {
+    margin-top: 0.45rem;
+    color: #29384d;
+    font-weight: 600;
+}
+
+.home-page .auth-card input,
+.home-page .auth-card select,
+.home-page .auth-card textarea,
+.home-page .auth-card button {
+    width: 100%;
+    min-height: 2.8rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid #c9d4e2;
+    border-radius: 0.45rem;
+    background: #fff;
+    color: #172033;
+    font: inherit;
+}
+
+.home-page .auth-card textarea {
+    min-height: 7rem;
+    resize: vertical;
+}
+
+.home-page .auth-card button {
+    margin-top: 0.6rem;
+    border-color: #145da0;
+    background: #145da0;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.home-page .auth-card form button:hover,
+.home-page .auth-card form button:focus-visible {
+    background: #0e477d;
+}
+
+.home-page .auth-card form p {
+    margin: 0;
+}
+
+.home-page .auth-card .primary-link {
+    margin: 0;
+}
+
+.home-page .auth-card a,
+.home-page .brand a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.home-page .account-nav form {
+    margin: 0;
+}
+
+.home-page .account-nav button {
+    min-height: 2.75rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #145da0;
+    border-radius: 0.55rem;
+    background: #145da0;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.95rem;
+}
+
+.home-page .form-error {
+    padding: 0.8rem;
+    border: 1px solid #e3a3a3;
+    border-radius: 0.45rem;
+    background: #fff1f1;
+    color: #8d1c1c;
+}
+
+.home-page .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    width: min(100% - 2rem, 1120px);
+    margin: 0 auto 1.5rem;
+}
+
+.home-page .filter-container input,
+.home-page .filter-container select {
+    min-width: min(100%, 16rem);
+    min-height: 2.8rem;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid #c9d4e2;
+    border-radius: 0.45rem;
+    background: #fff;
+    color: #172033;
+    font: inherit;
+}
+
+.home-page .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1rem;
+    overflow: visible;
+}
+
+.home-page .item-card {
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.home-page .item-card img {
+    display: block;
+    width: 100%;
+    max-height: 15rem;
+    margin-bottom: 0.8rem;
+    border-radius: 0.5rem;
+    object-fit: contain;
+}
+
+.home-page [hidden] {
+    display: none !important;
+}
+
+.home-page .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 600px) {
+    .home-page .account-nav form {
+        display: flex;
+        flex: 1 1 0;
+    }
+
+    .home-page .account-nav form button {
+        width: 100%;
+    }
+}

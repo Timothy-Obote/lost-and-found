@@ -3,86 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Lost and Found</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Profile links */
-        .profile a {
-            color: black;
-            text-decoration: none; /* Optional: Removes underline */
-        }
-
-        .profile a:hover {
-            color: blue;
-        }
-
-        /* Ensure the main heading is centered */
-        h1 {
-            text-align: center;
-            font-size: 32px;
-            font-weight: bold;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* Ensure all text inside `.container` is black */
-        .container {
-            color: black !important;
-        }
-
-        /* Fix `.section` links to remain black */
-        .section a {
-            color: black !important;
-            text-decoration: none;
-        }
-
-        /* Ensure `.section` text is black */
-        .section h2, .section p {
-            color: black !important;
-        }
-    </style>
+    <link rel="stylesheet" href="home.css">
 </head>
-<body>
-    <header>
-        <div class="profile">
-            <a href="profile.php">My Profile</a> | <a href="logout.php">Logout</a>
-        </div>
-
-        <!-- Centered `h1` -->
-        <h1>LOSE IT | LIST IT | FIND IT</h1>
-
-        <!-- Navigation Bar (kept functional) -->
-        <nav class="submit-nav">
+<body class="home-page">
+    <header class="site-header">
+        <nav class="account-nav" aria-label="Account">
+            <a href="profile.php">My profile</a>
+            <a class="primary-link" href="logout.php">Log out</a>
+        </nav>
+        <h1 class="brand">LOSE IT | LIST IT | FIND IT</h1>
+        <nav class="submit-nav" aria-label="Post an item">
             <a href="submit-lost.html">Submit Lost Item</a>
             <a href="submit-found.html">Submit Found Item</a>
         </nav>
     </header>
 
-    <p class="center-text"><b>Welcome to our site to view, claim, and post your lost item</b></p>
+    <main>
+        <section class="intro">
+            <h2>Welcome back</h2>
+            <p>Browse reported items by category, or share details about something you've lost or found.</p>
+        </section>
 
-    <div class="container">
-        <div class="section">
-            <a href="identification_cards.php">
-                <h2>Identification Cards</h2>
-                <p>View and report lost identification cards, Qwetu Hostels Cards, Passports.</p>
-            </a>
-        </div>
+        <section class="container category-grid" aria-label="Browse item categories">
+            <article class="section category-card" id="identification-cards">
+                <a href="identification_cards.php">
+                    <h3>Identification cards</h3>
+                    <p>View and report lost identification cards, Qwetu Hostels Cards, Passports.</p>
+                </a>
+            </article>
 
-        <div class="section">
-            <a href="electronics.php">
-                <h2>Electronic Devices</h2>
-                <p>Check for lost phones, laptops, and other electronic devices.</p>
-            </a>
-        </div>
+            <article class="section category-card" id="electronic-devices">
+                <a href="electronics.php">
+                    <h3>Electronic devices</h3>
+                    <p>Check for lost phones, laptops, and other electronic devices.</p>
+                </a>
+            </article>
 
-        <div class="section">
-            <a href="personal_items.php">
-                <h2>Personal Items</h2>
-                <p>Find and report missing personal belongings such as bags, water bottles, keys, or accessories.</p>
-            </a>
-        </div>
-    </div>
+            <article class="section category-card" id="personal-items">
+                <a href="personal_items.php">
+                    <h3>Personal items</h3>
+                    <p>Find and report missing personal belongings such as bags, water bottles, keys, or accessories.</p>
+                </a>
+            </article>
+        </section>
+    </main>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -98,6 +64,10 @@
 
         function displayItems(sectionId, items) {
             let section = document.getElementById(sectionId);
+            if (!section || !Array.isArray(items)) {
+                return;
+            }
+
             items.forEach(item => {
                 let div = document.createElement('div');
                 div.classList.add('lost-item');
