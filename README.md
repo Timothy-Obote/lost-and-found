@@ -1,6 +1,6 @@
 # Lost and Found
 
-A PHP web application to report lost or found property and browse item reports by category. The active application now uses a small native-PHP MVC architecture; it does not depend on Laravel or another framework.
+A PHP web application to report lost or found property and browse item reports by category. The active application now uses a small native-PHP MVC architecture.
 
 ## Technology stack
 
