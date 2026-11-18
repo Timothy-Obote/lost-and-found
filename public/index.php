@@ -42,7 +42,7 @@ try {
         if ($path === '/submit-found.html') {
             $_GET['status'] = 'found';
         }
-        $itemController->createForm();
+        (new ItemController($getItems()))->createForm();
     } elseif ($method === 'POST' && in_array($path, ['/items', '/submit_item.php'], true)) {
         (new ItemController($getItems()))->create();
     } elseif ($method === 'GET' && preg_match('#^/items/([a-z-]+)$#', $path, $matches) === 1) {
